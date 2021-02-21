@@ -14,11 +14,20 @@ class CategoryController extends Controller
 {
     public function AllCat()
     {
-//        $categories = Category::latest()->get();//boshidan
-//        $categories = Category::all(); // oxiridan
-        $categories = DB::table('categories')->latest()->get();
+//        QUERY
+//        $categories = DB::table('categories')
+//            ->join('users', 'categories.user_id', 'users.id')
+//            ->select('categories.*','users.name')
+//            ->latest()->paginate(5);
+//        $categories = DB::table('categories')->latest()->paginate(5);
 
-        return view('admin.category.index',compact('categories'));
+        //ORM
+        $categories = Category::latest()->paginate(5);//boshidan
+
+//        $categories = Category::all(); // oxiridan
+
+
+        return view('admin.category.index', compact('categories'));
     }
 
     public function AddCat(Request $request)
@@ -39,7 +48,6 @@ class CategoryController extends Controller
             'user_id' => Auth::user()->id,
             'created_at' => Carbon::now()
         ]);
-
 
 
 //         $category = new Category;

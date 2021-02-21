@@ -22,23 +22,24 @@
 
                         <div class="card-header">All category</div>
                         <div class="card-body">
-                            <table class="table badge-info">
+                            <table class="table badge-secondary">
                                 <thead>
                                 <tr>
                                     <th scope="col">SL No</th>
                                     <th scope="col">Category Name</th>
                                     <th scope="col">User</th>
                                     <th scope="col">Created AT</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                @php($i=1)
+{{--                                @php($i=1)--}}
                                 @foreach($categories as $category)
                                     <tr>
-                                        <th scope="row">{{$i++}}</th>
+                                        <th scope="row">{{$categories->firstItem()+$loop->index}}</th>
                                         <td>{{$category->category_name}}</td>
-                                        <td>{{$category->user_id}}</td>
+                                        <td>{{$category->user->name}}</td>
 
                                         <td>
                                             @if($category->created_at==NULL)
@@ -46,12 +47,17 @@
                                             @else
                                                 {{Carbon\Carbon::parse($category->created_at)->diffForHumans()}}
                                             @endif
+                                        <td>
+                                            <a href="" class="btn btn-info">Edit</a>
+                                            <a href="" class="btn btn-danger">Delete</a>
+                                        </td>
                                         </td>
                                     </tr>
                                 @endforeach
 
                                 </tbody>
                             </table>
+                            {{$categories->links()}}
                         </div>
 
                     </div>
