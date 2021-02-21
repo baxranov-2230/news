@@ -62,5 +62,23 @@ class CategoryController extends Controller
 
         return Redirect()->back()->with('success', 'Categoriya omadli insert boldi');
 
+
+
     }
+
+    public function Edit($id){
+        $categories = Category::find($id);
+        return view('admin.category.edit', compact('categories'));
+    }
+
+    public function Update(Request $request, $id){
+        $update = Category::find($id)->update([
+            'category_name' =>$request->category_name,
+            'user_id' => Auth::user()->id
+
+
+        ]);
+        return Redirect()->route('all.category')->with('success', 'Categoriya omadli yangilandi');
+    }
+
 }
