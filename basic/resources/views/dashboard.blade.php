@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row">
 
-                <table class="table">
+                <table class="table badge-primary">
                     <thead>
                     <tr>
                         <th scope="col">SL No</th>
