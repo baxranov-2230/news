@@ -125,6 +125,7 @@
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/facade/ignition-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/facade/ignition" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/intervention/image" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -119,6 +119,7 @@
       <path value="$PROJECT_DIR$/basic/vendor/league/commonmark" />
       <path value="$PROJECT_DIR$/basic/vendor/facade/ignition-contracts" />
       <path value="$PROJECT_DIR$/basic/vendor/facade/ignition" />
+      <path value="$PROJECT_DIR$/basic/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
