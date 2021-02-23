@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -10,8 +9,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card">
-
+                    <div class="card-group">
+                        @foreach($images as $multi)
+                            <div class="col-md-4 mt-5">
+                           <div class="card">
+                               <img src="{{asset($multi->image)}}" alt="" style="width: 200px; height: 200px">
+                           </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -20,15 +25,15 @@
                     <div class="card badge-secondary">
                         <div class="card-header">Multi Image</div>
                         <div class="card-body">
-                            <form action="{{ route('store.brand') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('store.image') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
 
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Brand name</label>
-                                    <input type="file" name="brand_image" class="form-control" id="exampleInputEmail1"
-                                           aria-describedby="emailHelp">
-                                    @error('brand_image')
+                                    <label for="exampleInputEmail1"> multi image</label>
+                                    <input type="file" name="image[]" class="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp" multiple="">
+                                    @error('image')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
