@@ -68,8 +68,8 @@ class CategoryController extends Controller
     }
 
     public function Edit($id){
-//        $categories = Category::find($id);
-        $categories = DB::table('categories')->where('id',$id)->first();
+        $categories = Category::find($id);
+//        $categories = DB::table('categories')->where('id',$id)->first();
         return view('admin.category.edit', compact('categories'));
     }
 
